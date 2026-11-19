@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Panel de cliente | LitApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputStylesheet name="css/styles.css"/>
+</h:head>
+<h:body styleClass="lit-body">
+    <header class="lit-header">
+        <span class="lit-logo">LitApp</span>
+        <span class="lit-titulo">PANEL DE CLIENTE</span>
+        <h:form id="frmSalir">
+            <p:commandButton value="Cerrar sesión" action="#{loginUI.cerrarSesion}" ajax="false"/>
+        </h:form>
+    </header>
+    <main class="lit-main">
+        <p:growl showDetail="false"/>
+    </main>
+</h:body>
+</html>

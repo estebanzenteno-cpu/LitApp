@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Iniciar sesión | LitApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputStylesheet name="css/styles.css"/>
+</h:head>
+<h:body styleClass="lit-body">
+    <header class="lit-header">
+        <span class="lit-logo">LitApp</span>
+        <span class="lit-titulo">INICIAR SESIÓN</span>
+    </header>
+    <main class="lit-main">
+        <h:form id="frmLogin" styleClass="lit-login">
+            <h1>Iniciar sesión</h1>
+            <p:messages id="avisos" showDetail="false"/>
+            <p:outputLabel for="usuario" value="Usuario o correo"/>
+            <p:inputText id="usuario" value="#{loginUI.usuario}" maxlength="50"
+                         placeholder="Usuario o correo" autocomplete="username"/>
+            <p:outputLabel for="clave" value="Contraseña"/>
+            <p:password id="clave" value="#{loginUI.contrasena}" maxlength="256"
+                        toggleMask="true" redisplay="false" autocomplete="current-password"/>
+            <p:commandButton value="Iniciar sesión" action="#{loginUI.iniciarSesion}"
+                             ajax="false" styleClass="lit-login-boton"/>
+            <h:link outcome="/crear-cuenta" value="Crear cuenta"/>
+        </h:form>
+    </main>
+</h:body>
+</html>

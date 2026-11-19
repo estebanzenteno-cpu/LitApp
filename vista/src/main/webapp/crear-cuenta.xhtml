@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Crear cuenta | LitApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <h:outputStylesheet name="css/styles.css"/>
+</h:head>
+<h:body styleClass="lit-body">
+    <header class="lit-header">
+        <span class="lit-logo">LitApp</span>
+        <span class="lit-titulo">CREAR CUENTA</span>
+    </header>
+    <main class="lit-main">
+        <h:form id="frmCrearCuenta" styleClass="lit-login">
+            <h1>Crear cuenta</h1>
+            <p:messages showDetail="false"/>
+            <p:outputLabel for="correo" value="Correo electrónico"/>
+            <p:inputText id="correo" type="email" value="#{crearCuentaUI.correo}"
+                         maxlength="50" autocomplete="email"/>
+            <p:outputLabel for="clave" value="Contraseña (mínimo 12 caracteres)"/>
+            <p:password id="clave" value="#{crearCuentaUI.contrasena}" maxlength="256"
+                        toggleMask="true" redisplay="false" autocomplete="new-password"/>
+            <p:outputLabel for="confirmacion" value="Confirmar contraseña"/>
+            <p:password id="confirmacion" value="#{crearCuentaUI.confirmacion}" maxlength="256"
+                        toggleMask="true" redisplay="false" autocomplete="new-password"/>
+            <p:commandButton value="Crear cuenta" action="#{crearCuentaUI.registrar}"
+                             ajax="false" styleClass="lit-login-boton"/>
+            <h:link outcome="/login" value="Volver a iniciar sesión"/>
+        </h:form>
+    </main>
+</h:body>
+</html>
