@@ -25,10 +25,16 @@ public class NavegacionBeanUI implements Serializable {
     @Inject
     private ProveedorBeanUI proveedorUI;
 
+    @Inject
+    private LoginBeanUI loginUI;
+
     private String pagina = MENU;
 
     /** Cambia a la pantalla indicada y deja sus formularios limpios. */
     public void ir(String destino) {
+        if (ELIMINAR_CLIENTE.equals(destino) && !loginUI.isGerente()) {
+            return;
+        }
         clienteUI.limpiarRegistro();
         clienteUI.cancelarModificacion();
         proveedorUI.cancelarEdicion();
@@ -45,7 +51,9 @@ public class NavegacionBeanUI implements Serializable {
 
     /** Abre la eliminación de clientes sin modificar el estado de los otros formularios. */
     public void eliminarCliente() {
-        pagina = ELIMINAR_CLIENTE;
+        if (loginUI.isGerente()) {
+            pagina = ELIMINAR_CLIENTE;
+        }
     }
 
     /** Regresa a la lista si se esta editando un cliente, o al menu principal en otro caso. */

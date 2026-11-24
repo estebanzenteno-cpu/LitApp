@@ -9,6 +9,43 @@
     --lit-fuente: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
 }
 
+.lit-login {
+    width: min(100%, 25rem);
+    margin: 1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+}
+
+.lit-login h1 {
+    text-align: center;
+    margin: 0 0 1rem;
+}
+
+.lit-login label:not(:first-child) {
+    margin-top: .4rem;
+}
+
+.lit-login .ui-password,
+.lit-login .ui-password input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body .lit-login .lit-login-boton {
+    margin-top: .75rem;
+    background: var(--lit-verde);
+    border-color: var(--lit-verde);
+    color: var(--lit-texto);
+    font-weight: 700;
+}
+
+.lit-salir {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+}
+
 html, body.lit-body {
     margin: 0;
     min-height: 100vh;

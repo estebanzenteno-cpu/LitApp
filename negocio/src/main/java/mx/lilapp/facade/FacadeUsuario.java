@@ -9,6 +9,10 @@ public class FacadeUsuario {
 
     private final DelegateUsuario delegateUsuario = new DelegateUsuario();
 
+    public void registrarCuentaCliente(String correo, char[] clave) {
+        delegateUsuario.registrarCuentaCliente(correo, clave);
+    }
+
     /** Registra un usuario nuevo. */
     public void guardar(Usuario usuario) {
         delegateUsuario.guardar(usuario);
@@ -32,5 +36,8 @@ public class FacadeUsuario {
     /** Devuelve todos los usuarios. */
     public List<Usuario> listar() {
         return delegateUsuario.listar();
+    }
+    public mx.lilapp.seguridad.RolAcceso autenticar(String nombre, char[] clave) {
+        return delegateUsuario.autenticar(nombre, clave);
     }
 }

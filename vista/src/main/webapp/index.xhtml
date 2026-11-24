@@ -5,6 +5,9 @@
                 template="/WEB-INF/templates/plantilla.xhtml">
 
     <ui:define name="contenido">
+        <h:form id="frmSalirInterno" styleClass="lit-salir">
+            <p:commandButton value="Cerrar sesión" action="#{loginUI.cerrarSesion}" ajax="false"/>
+        </h:form>
         <h:panelGroup id="contenido" layout="block">
 
             <h:form id="frmMenu" rendered="#{navegacionUI.enMenu}">
@@ -46,6 +49,7 @@
                     </p:commandLink>
 
                     <p:commandLink action="#{navegacionUI.eliminarCliente}" process="@this"
+                                   rendered="#{loginUI.gerente}"
                                    update=":contenido :titulo :frmRegresar" styleClass="tarjeta">
                         <span class="tarjeta-icono">
                             <svg viewBox="0 0 100 80" aria-hidden="true">
@@ -169,7 +173,7 @@
             </h:panelGroup>
 
             <h:panelGroup layout="block"
-                          rendered="#{navegacionUI.pagina eq 'eliminar-cliente'}">
+                          rendered="#{loginUI.gerente and navegacionUI.pagina eq 'eliminar-cliente'}">
                 <ui:include src="/WEB-INF/clientes/eliminar.xhtml"/>
             </h:panelGroup>
 

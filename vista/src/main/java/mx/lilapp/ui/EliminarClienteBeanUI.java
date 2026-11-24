@@ -101,6 +101,11 @@ public class EliminarClienteBeanUI implements Serializable {
     }
 
     public void confirmarEliminacion() {
+        if (FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                .get(LoginBeanUI.ROL_SESION) != mx.lilapp.seguridad.RolAcceso.GERENTE) {
+            mostrarError("No tienes permiso para eliminar clientes.");
+            return;
+        }
         PrimeFaces.current().ajax().addCallbackParam("eliminacionFinalizada", true);
         PrimeFaces.current().ajax().addCallbackParam("eliminacionExitosa", false);
 
