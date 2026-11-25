@@ -18,7 +18,11 @@
             <p:outputLabel for="correo" value="Correo electrónico"/>
             <p:inputText id="correo" type="email" value="#{crearCuentaUI.correo}"
                          maxlength="50" autocomplete="email"/>
-            <p:outputLabel for="clave" value="Contraseña (mínimo 12 caracteres)"/>
+            <p:outputLabel for="telefono" value="Teléfono"/>
+            <p:inputText id="telefono" value="#{crearCuentaUI.telefono}"
+                         maxlength="10" autocomplete="tel"/>
+            <p:keyFilter for="telefono" mask="pint"/>
+            <p:outputLabel for="clave" value="Contraseña (mínimo 10 caracteres)"/>
             <p:password id="clave" value="#{crearCuentaUI.contrasena}" maxlength="256"
                         toggleMask="true" redisplay="false" autocomplete="new-password"/>
             <p:outputLabel for="confirmacion" value="Confirmar contraseña"/>

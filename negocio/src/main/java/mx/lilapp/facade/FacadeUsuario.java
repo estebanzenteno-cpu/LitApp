@@ -2,6 +2,7 @@ package mx.lilapp.facade;
 
 import mx.lilapp.delegate.DelegateUsuario;
 import mx.lilapp.entity.Usuario;
+import mx.lilapp.seguridad.RolAcceso;
 
 import java.util.List;
 
@@ -11,6 +12,18 @@ public class FacadeUsuario {
 
     public void registrar(Usuario usuario) {
         delegateUsuario.registrar(usuario);
+    }
+
+    public void registrarCuentaCliente(String correo, char[] clave) {
+        delegateUsuario.registrarCuentaCliente(correo, clave);
+    }
+
+    public void registrarCuentaCliente(String correo, String telefono, char[] clave) {
+        delegateUsuario.registrarCuentaCliente(correo, telefono, clave);
+    }
+
+    public RolAcceso autenticar(String nombre, char[] clave) {
+        return delegateUsuario.autenticar(nombre, clave);
     }
 
     /** Registra un usuario nuevo. */

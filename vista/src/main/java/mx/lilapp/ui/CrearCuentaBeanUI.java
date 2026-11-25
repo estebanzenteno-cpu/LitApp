@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class CrearCuentaBeanUI {
     private static final Logger LOGGER = Logger.getLogger(CrearCuentaBeanUI.class.getName());
     private String correo;
+    private String telefono;
     private String contrasena;
     private String confirmacion;
 
@@ -25,7 +26,8 @@ public class CrearCuentaBeanUI {
         contrasena = null;
         confirmacion = null;
 
-        if (correo == null || correo.isBlank() || claveIngresada == null || claveIngresada.isBlank()
+        if (correo == null || correo.isBlank() || telefono == null || telefono.isBlank()
+                || claveIngresada == null || claveIngresada.isBlank()
                 || confirmacionIngresada == null || confirmacionIngresada.isBlank()) {
             return error("Favor de llenar todos los campos.");
         }
@@ -35,7 +37,7 @@ public class CrearCuentaBeanUI {
 
         char[] clave = claveIngresada.toCharArray();
         try {
-            ServiceFacadeLocator.getInstanceFacadeUsuario().registrarCuentaCliente(correo, clave);
+            ServiceFacadeLocator.getInstanceFacadeUsuario().registrarCuentaCliente(correo, telefono, clave);
         } catch (NegocioException e) {
             return error(e.getMessage());
         } catch (RuntimeException | LinkageError e) {
@@ -59,6 +61,8 @@ public class CrearCuentaBeanUI {
 
     public String getCorreo() { return correo; }
     public void setCorreo(String correo) { this.correo = correo; }
+    public String getTelefono() { return telefono; }
+    public void setTelefono(String telefono) { this.telefono = telefono; }
     public String getContrasena() { return contrasena; }
     public void setContrasena(String contrasena) { this.contrasena = contrasena; }
     public String getConfirmacion() { return confirmacion; }
