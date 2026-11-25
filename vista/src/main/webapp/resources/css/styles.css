@@ -1048,3 +1048,36 @@ body .ui-button.lit-boton.lit-boton-eliminar:enabled:hover {
     opacity: .75;
     text-align: center;
 }
+
+.lit-form-usuario {
+    max-width: 620px;
+    gap: 1.25rem;
+}
+
+.lit-fila-usuario {
+    align-items: start;
+}
+
+.lit-campo-usuario {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+.lit-etiqueta-usuario {
+    color: var(--lit-gris-oscuro);
+    font-family: var(--lit-fuente);
+    font-size: .85rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.lit-nota-contrasena {
+    margin-top: -.5rem;
+    color: var(--lit-gris-oscuro);
+    font-family: var(--lit-fuente);
+    font-size: .8rem;
+    opacity: .85;
+    text-align: center;
+}
