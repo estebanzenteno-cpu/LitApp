@@ -9,6 +9,10 @@ public class FacadeUsuario {
 
     private final DelegateUsuario delegateUsuario = new DelegateUsuario();
 
+    public void registrar(Usuario usuario) {
+        delegateUsuario.registrar(usuario);
+    }
+
     /** Registra un usuario nuevo. */
     public void guardar(Usuario usuario) {
         delegateUsuario.guardar(usuario);
