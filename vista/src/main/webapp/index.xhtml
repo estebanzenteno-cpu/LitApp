@@ -122,7 +122,10 @@
                         <span class="tarjeta-texto">CONSULTAR PROVEEDOR</span>
                     </p:commandLink>
 
-                    <a class="tarjeta" href="#" title="Disponible próximamente" onclick="return false;">
+                    <p:commandLink action="#{navegacionUI.ir('eliminar-proveedor')}"
+                                   process="@this"
+                                   update=":contenido :titulo :frmRegresar"
+                                   styleClass="tarjeta">
                         <span class="tarjeta-icono">
                             <svg viewBox="0 0 100 80" aria-hidden="true">
                                 <circle cx="48" cy="28" r="14"/>
@@ -132,7 +135,7 @@
                             </svg>
                         </span>
                         <span class="tarjeta-texto">ELIMINAR PROVEEDOR</span>
-                    </a>
+                    </p:commandLink>
 
                     <p:commandLink action="#{navegacionUI.ir('modificar-proveedor')}" process="@this"
                                    update=":contenido :titulo :frmRegresar" styleClass="tarjeta">
@@ -181,6 +184,12 @@
                           rendered="#{navegacionUI.pagina eq 'consulta-proveedor'}">
                 <ui:include src="/WEB-INF/proveedores/consulta.xhtml"/>
             </h:panelGroup>
+
+            <h:panelGroup layout="block"
+                          rendered="#{navegacionUI.pagina eq 'eliminar-proveedor'}">
+                <ui:include src="/WEB-INF/proveedores/eliminar.xhtml"/>
+            </h:panelGroup>
+
             <h:panelGroup layout="block" rendered="#{navegacionUI.pagina eq 'modificar-proveedor'}">
                 <ui:include src="/WEB-INF/proveedores/modificar.xhtml"/>
             </h:panelGroup>

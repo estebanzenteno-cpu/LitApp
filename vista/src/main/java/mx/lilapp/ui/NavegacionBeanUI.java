@@ -18,6 +18,7 @@ public class NavegacionBeanUI implements Serializable {
     public static final String REGISTRAR_PROVEEDOR = "registrar-proveedor";
     public static final String CONSULTAR_PROVEEDOR = "consulta-proveedor";
     public static final String MODIFICAR_PROVEEDOR = "modificar-proveedor";
+    public static final String ELIMINAR_PROVEEDOR = "eliminar-proveedor";
 
     @Inject
     private ClienteBeanUI clienteUI;
@@ -32,8 +33,10 @@ public class NavegacionBeanUI implements Serializable {
         clienteUI.limpiarRegistro();
         clienteUI.cancelarModificacion();
         proveedorUI.cancelarEdicion();
-        if (CONSULTAR_PROVEEDOR.equals(destino) || MODIFICAR_PROVEEDOR.equals(destino)) {
+        if (CONSULTAR_PROVEEDOR.equals(destino) || MODIFICAR_PROVEEDOR.equals(destino)
+                || ELIMINAR_PROVEEDOR.equals(destino)) {
             proveedorUI.limpiarBusqueda();
+            proveedorUI.cancelarEliminar();
         }
         pagina = destino;
     }
@@ -76,6 +79,8 @@ public class NavegacionBeanUI implements Serializable {
                 return "CONSULTAR PROVEEDOR";
             case MODIFICAR_PROVEEDOR:
                 return "MODIFICAR PROVEEDOR";
+            case ELIMINAR_PROVEEDOR:
+                return "ELIMINAR PROVEEDOR";
             default:
                 return "";
         }
